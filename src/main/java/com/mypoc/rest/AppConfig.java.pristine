@@ -1,0 +1,42 @@
+package com.mypoc.rest;
+
+import org.springframework.core.env.Environment;
+import org.springframework.data.mongodb.config.AbstractReactiveMongoConfiguration;
+import org.springframework.data.mongodb.repository.config.EnableReactiveMongoRepositories;
+
+import com.mongodb.reactivestreams.client.MongoClient;
+import com.mongodb.reactivestreams.client.MongoClients;
+
+@EnableReactiveMongoRepositories
+public class AppConfig extends AbstractReactiveMongoConfiguration {
+
+	private Environment environment;
+
+    public AppConfig(Environment environment) {
+        this.environment = environment;
+    }
+
+  @Override
+  protected String getDatabaseName() {
+    return "reactivemongo";
+  }
+
+@Override
+public MongoClient reactiveMongoClient() {
+	// TODO Auto-generated method stub
+	String port = environment.getProperty("local.mongo.port");
+	
+	if ((null == port ) || (port.equals("")))
+		port = "27017";
+
+	//return MongoClients.create(String.format("mongodb://localhost:"+ port));
+        // Trying to make it K8 compatible
+	return MongoClients.create(String.format("mongodb://mymongo:"+ port));
+
+	//return null;
+}
+
+
+
+
+}
