@@ -1,0 +1,5 @@
+com\mypoc\rest\MyRestController.class
+com\mypoc\rest\ClientRepository.class
+com\mypoc\rest\MyApp.class
+com\mypoc\rest\MyClient.class
+com\mypoc\rest\MyClient2.class
