@@ -5,9 +5,9 @@ spring:
     mongodb:
 #      host: localhost
 #      port: 27017
-#      uri: mongodb://user:secret@mongo1.example.com:12345,mongo2.example.com:23456/test
+      uri: mongodb://rranjan:rranjan01@mongodb:27017/sampledb # For openshift
 #      uri: mongodb://localhost:27017/db_example
-      uri: mongodb://mymongo:27017/db_example
+#      uri: mongodb://mymongo:27017/db_example    # Commented for openshift
 #      grid-fs-database: images
 logging:
   level:
